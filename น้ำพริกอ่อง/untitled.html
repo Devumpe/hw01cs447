@@ -1,0 +1,52 @@
+<html>
+<scipt src = "js/vendor/i18n/default-*.min.js"></script>
+<script>
+ function validateForm()
+{
+ var input1 = document.getElementById("fromCity").value;
+ var input2 = document.getElementById("toCity").value ;
+ if(input1 == " " || input2 == " ")
+ {
+        alert(input1 + "error" + "error");
+  return false;
+ }
+
+ else {
+  
+  
+  alert(input2);
+ return true;
+}
+ }
+</script>
+</head>
+
+<body>
+<div>
+ <h1>FLIGHT</h1>
+</div>
+<div align = "center">
+
+
+<form action = "http://google.co.th" method = "GET" on submit = "return validateForm()">
+ <div align = "right">
+  <input type = "radio" name = "directionOptRadio">One Way
+  <br>
+  <input type = "radio" name = "directionOptRadio" checked>Round Trip<br>
+  </div>
+  <div>
+  Flying from<br>
+  <input type = "text" name = "fromCity" id = "fromCity" 
+    placeholder = "From City"><br>
+  Flying to<br>
+  <input type = "text" name = "toCity" id = "toCity" 
+    placeholder = "To City">
+  </div>
+
+  <div>
+   <input type = "submit" name = "submitBtn" value = "Search">
+  </div>
+</form>
+</div>
+</body>
+</html>
