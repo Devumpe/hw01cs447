@@ -79,13 +79,13 @@ echo '<section>
         <div class="row align-items-center">
           <div class="col-md-6">
             <div class="p-5"> ';
-              echo('<img height="349" width="500"class="img-fluid rounded-circle"  alt="" src="data:image/jpeg;base64,'.base64_encode($row['  imgproduct'] ).'"/>');
+              echo('<img height="349" width="500"class="img-fluid rounded-circle"  alt="" src="'.$row['imgproduct'] .'"/>');
            echo '</div>
           </div>
           <div class="col-md-6">
             <div class="p-5">';
               printf('<h2 class="display-4">%s</h2>',$row['nameproduct']);
-              printf('<p>    %s <br> <b>ราคา : %.2f บาท  <br><b>มีจำนวนสินค้า<b> : %d  อัน<b></p> ',$row['description'],$row['price'],$row['countproduct']);
+              printf('<p> <b>   "%s"  <br><br><b> ราคา : %.2f  บาท  <br><b>มีจำนวนสินค้า<b> : %d  อัน<b></p>  ',$row['description'],$row['price'],$row['countproduct']);
                       
      echo '
             </div>

@@ -14,6 +14,7 @@
 <html lang="en">
 
   <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -28,7 +29,16 @@
     <link href="css/one-page-wonder.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<style >
+.btnRegister {
+  padding: 10px 30px;
+  background-color: red;
+  border: 0;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-left: 10px;
+}</style>
   </head>
 
   <body>
@@ -67,8 +77,8 @@
     <header class="masthead">
       <div class="overlay">
         <div class="container">
-          <h1 class="display-1 text-white">Welcome to</h1>
-          <h2 class="display-4 text-white"> " <?php echo $_SESSION['userfname']; echo "\t"; echo $_SESSION['userlname'];   ?>" </h2>
+          <h1 class="display-1 text-white "  ">   รายการสินค้า</h1>
+          <h2 class="display-4 text-white">  </h2>
         </div>
       </div>
     </header>
@@ -84,27 +94,37 @@ echo '<section>
         <div class="row align-items-center">
           <div class="col-md-6">
             <div class="p-5"> ';
-              echo'<img height="349" width="500"  class="img-fluid rounded-circle"  alt=""  src = "data:image/jpeg;base64,' . base64_encode($row['  imgproduct']).'"/>';
+              echo'<img height="349" width="500"  class="img-fluid rounded-circle"   alt=""   src="'.$row['imgproduct'] .'"/>';
            echo '</div>
           </div>
           <div class="col-md-6">
             <div class="p-5">';
-              printf('<h2 class="display-4">%s</h2>',$row['nameproduct']);
-              printf('<p>    %s <br> <b>ราคา : %.2f บาท  <br><b>มีจำนวนสินค้า<b> : %d  อัน<b></p> ',$row['description'],$row['price'],$row['countproduct']);
-              echo '<div>';
+
+              printf('<h2 class="display-4">%s</h2> ',$row['nameproduct']);
+
+              printf('<p> <b> "%s" <br><br><b> ราคา : %.2f  บาท  <br><b>มีจำนวนสินค้า<b> : %d  อัน<b></p> ',$row['description'],$row['price'],$row['countproduct']);
+
+              echo '<div style="display:block">';
+              echo'<from >';
+                            echo '<div>';
+
+
               echo '<form action="updatePlusOne.php" action="post">';
-              printf(' <button type="submit" value="%s" class="loginbtn" name="idproduct"> เพิ่มจำนวนสินค้า</button> </form>',$row['idproduct']);
-              echo "";
+              printf(' <button type="submit" value="%s" style= "  background-color: blue" class="btnRegister" name="idproduct"> เพิ่มจำนวนสินค้า</button> </form>',$row['idproduct']);
+              echo'<br>';
+              
               echo '<form action="updateMinusOne.php" method="post">';
-              printf(' <button type="submit" value="%s" class="loginbtn" name="idproduct"> ลดจำนวนสินค้า </button> </form>',$row['idproduct']);echo "\t";
-echo '</div>';
+              printf(' <button type="submit" value="%s"  style= "  background-color: green" class="btnRegister" name="idproduct"> ลดจำนวนสินค้า </button> </form>',$row['idproduct']);echo "\t";
               echo '<form action="deleteproduct.php" method="post">';
-              echo "<button type='submit' class='btn btn-lg btn-link' name='idproduct' value='". $row['idproduct'] ."'>
+                            echo'<br>';
+
+              echo "<button type='submit' class='btnRegister' name='idproduct' value='". $row['idproduct'] ."'>
                       ลบสินค้าออกจากรายการ
                     </button>
               ";
               echo '</form>';          
      echo '
+     <br>
             </div>
           </div>
         </div>

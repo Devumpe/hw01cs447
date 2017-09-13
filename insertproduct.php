@@ -3,18 +3,21 @@
 	session_start();
 
 	include("connect.php");
-	 $_REQUEST['nameproduct'];
-	 $_REQUEST['description'];
+
+	/*$_REQUEST['nameproduct'];
+	$_REQUEST[' imgproduct'];
+	$_REQUEST['description'];
  	$_REQUEST['price'];
- 	$_REQUEST['countproduct'];
-	$sql = "INSERT INTO `lpstore`(`nameproduct`, `description`, `price`, `countproduct`) VALUES ('".$_REQUEST['nameproduct']."', '".$_REQUEST['description']."' ,'".$_REQUEST['price']."','".$_REQUEST['countproduct']."');";
+ 	$_REQUEST['countproduct'];*/
+	$sql = "INSERT INTO `lpstore`(`nameproduct`, `imgproduct`, `description`, `price`, `countproduct`) VALUES ('".$_REQUEST['nameproduct']."','".$_REQUEST['imgproduct']."','".$_REQUEST['description']."' ,'".$_REQUEST['price']."','".$_REQUEST['countproduct']."');";
 	
 
 	if(!$conn->query($sql)) {
+		echo "Error:" . mysqli_error($conn);
 
-		echo "<script>
-				alert('Please check !!');
-			</script>";
+		// echo "<script>
+		// 		alert('Please check !!');
+		// 	</script>";
 
 	} else {
 

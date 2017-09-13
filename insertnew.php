@@ -72,6 +72,9 @@
   border-radius: 4px;
   margin-left: 10px;
 }
+td{
+  color:white;
+}
 </style>
 </head>
 <body>
@@ -110,53 +113,59 @@
     <header class="masthead">
       <div class="overlay">
         <div class="container">
-          <h1 class="display-1 text-white">Welcome to</h1>
-          <h2 class="display-4 text-white"> " <?php echo $_SESSION['userfname'];   ?>" </h2>
+          <h1 class="display-1 text-white">เพิ่มรายการสินค้า</h1>
+          <h2 class="display-4 text-white">  </h2>
         </div>
       </div>
     </header>
 
-
-
-<div align ="center" name="frmRegistration" color = "text-white" method="post" action="insertproduct.php">
- <table border="0" width="500" align="center" class="demo-table"> 
+<div style="background-color:black">
+<div name="frmRegistration" color = "text-black" method="post" action="insertproduct.php">
+ <table border="0" width="500" align="center"  style="margin-left: 100px ; background-color:black" class="demo-table"> 
     <?php if(!empty($success_message)) { ?> 
     <div class="success-message"><?php if(isset($success_message)) echo $success_message; ?></div>
     <?php } ?>
     <?php if(!empty($error_message)) { ?> 
-    <div class="error-message"><?php if(isset($error_message)) echo $error_message; ?></div>
+    <div class="error-message" ><?php if(isset($error_message)) echo $error_message; ?></div>
     <?php } ?>
-
-      <form align ="center" color = "text-white" action="insertproduct.php" method="post">
+      <form color = "text-white" style=" background-color:black"action="insertproduct.php" method="post">
 
     <tr>
       <td>ชื่อสินค้า</td>
-      <td><input type="text center" class="demoInputBox" name="nameproduct" value="<?php if(isset($_POST['nameproduct'])) echo $_POST['nameproduct']; ?>"></td>
+      <td><input type="text center" class="demoInputBox" name="nameproduct"></td>
     </tr>
     <tr>
       <td>รายละเอียด</td>
-      <td><textarea type="text" class="demoInputBox" name="description" value="<?php if(isset($_POST['description'])) echo $_POST['description']; ?>"></textarea></td>
+      <td><textarea type="text" class="demoInputBox" name="description"></textarea></td>
     </tr>
    
-    <!--<tr>
+    <tr>
       <td>รูปภาพ</td>
-      <td><input type="password" class="demoInputBox" name="password" value=""></td>
-    </tr> -->
+      <td><input type="text center" class="demoInputBox" name="imgproduct" >(โปรดใส่เป็น URL)</td>
+    </tr> 
    <tr>
       <td>ราคา</td>
-      <td><input type="text" class="demoInputBox" name="price" value="<?php if(isset($_POST['price'])) echo $_POST['price']; ?>"></td>
+      <td><input type="text" class="demoInputBox" name="price"></td>
     </tr>
  <tr>
       <td>จำนวนของในสต็อก</td>
-      <td><input type="text" class="demoInputBox" name=" countproduct" value="<?php if(isset($_POST[' countproduct'])) echo $_POST[' countproduct']; ?>"></td>
+      <td><input type="number" class="demoInputBox" name="countproduct" ></td>
     </tr> 
+
+
     <tr>
       <td colspan=2>
-      <input align ="center" type="submit" name="register-user" value="เพิ่มสินค้า" class="btnRegister"></td>
     </tr>
+    </div>
    </table> 
+   <div align="center">
+                <input type="submit" name="register-user" value="เพิ่มสินค้า" class="btnRegister"><br>
+                </div><br><br>
+
   </form>
 </div>
+</div>
+
 
 <footer class="py-5 bg-dark">
       <div class="container">
